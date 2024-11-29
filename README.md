@@ -5,36 +5,36 @@
 首先，我们画一个主窗口，代码实现如下：
 
 # 创建主窗口
-tk = tkinter.Tk()
+    tk = tkinter.Tk()
 # 设置窗口大小和位置
-tk.geometry('300x210+500+200')
+    tk.geometry('300x210+500+200')
 # 不允许改变窗口大小
-tk.resizable(False, False)
+    tk.resizable(False, False)
 # 设置窗口标题
-tk.title('计算器')
+    tk.title('计算器')
 
 
 # 我们接着画显示器，代码实现如下:
 # 自动刷新字符串变量，可用 set 和 get 方法进行传值和取值
-contentVar = tkinter.StringVar(tk, '')
+    contentVar = tkinter.StringVar(tk, '')
 # 创建单行文本框
-contentEntry = tkinter.Entry(tk, textvariable=contentVar)
+    contentEntry = tkinter.Entry(tk, textvariable=contentVar)
 # 设置文本框为只读
-contentEntry['state'] = 'readonly'
+    contentEntry['state'] = 'readonly'
 # 设置文本框坐标及宽高
-contentEntry.place(x=20, y=10, width=260, height=30)
+    contentEntry.place(x=20, y=10, width=260, height=30)
 
 
 # 按钮显示内容
-bvalue = ['C', '+', '-', '//', '2', '0', '1', '√', '3', '4', '5', '*', '6', '7', '8', '.', '9', '/', '**', '=']
-index = 0
+    bvalue = ['C', '+', '-', '//', '2', '0', '1', '√', '3', '4', '5', '*', '6', '7', '8', '.', '9', '/', '**', '=']
+    index = 0
 # 将按钮进行 5x4 放置
-for row in range(5):
-    for col in range(4):
-        d = bvalue[index]
-        index += 1
-        btnDigit = tkinter.Button(tk, text=d, command=lambda x=d: onclick(x))
-        btnDigit.place(x=20 + col * 70, y=50 + row * 30, width=50, height=20)
+    for row in range(5):
+        for col in range(4):
+            d = bvalue[index]
+            index += 1
+            btnDigit = tkinter.Button(tk, text=d, command=lambda x=d: onclick(x))
+            btnDigit.place(x=20 + col * 70, y=50 + row * 30, width=50, height=20)
 
 
 # 界面画完了，我们看一下处理运算逻辑的代码，如下所示：
